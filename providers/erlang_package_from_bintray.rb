@@ -84,7 +84,7 @@ action :remove do
     erlang_packages = [base_pkg] + DEBIAN_PACKAGES
 
     # xenial does not have these packages
-    if node['rabbitmq']['erlang']['apt']['lsb_codename'] == 'xenial'
+    if node['rabbitmq']['erlang']['apt']['lsb_codename'] == 'xenial' || node['rabbitmq']['erlang']['apt']['lsb_codename'] == 'jessie'
       erlang_packages -= %w(erlang-ftp erlang-tftp)
     end
 
